@@ -1,0 +1,702 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <title>Documentação Protocolo de Pagamento via GiftCard API Convertize</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;python&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="python">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#instroducao" class="toc-h1 toc-link" data-title="Instrodução">Instrodução</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#giftcard" class="toc-h1 toc-link" data-title="GiftCard">GiftCard</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#criar-giftcard" class="toc-h2 toc-link" data-title="Criar Giftcard">Criar Giftcard</a>
+                  </li>
+                  <li>
+                    <a href="#recuperar-giftcard" class="toc-h2 toc-link" data-title="Recuperar Giftcard">Recuperar Giftcard</a>
+                  </li>
+                  <li>
+                    <a href="#buscar-giftcard" class="toc-h2 toc-link" data-title="Buscar Giftcard">Buscar Giftcard</a>
+                  </li>
+                  <li>
+                    <a href="#criar-transacao" class="toc-h2 toc-link" data-title="Criar Transação">Criar Transação</a>
+                  </li>
+                  <li>
+                    <a href="#recuperar-transacao" class="toc-h2 toc-link" data-title="Recuperar Transação">Recuperar Transação</a>
+                  </li>
+                  <li>
+                    <a href="#cancelar-transacao" class="toc-h2 toc-link" data-title="Cancelar Transação">Cancelar Transação</a>
+                  </li>
+                  <li>
+                    <a href="#captura-transacao" class="toc-h2 toc-link" data-title="Captura Transação">Captura Transação</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href="http://www.convertize.com.br/" target="_blank">Convertize</a></li>
+            <li><a href="https://github.com/convertize" target="_blank">GitHub</a></li>
+            <li><a href="http://www.convertize.com.br/desenvolvedores" target="_blank">Desenvolvedores</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='instroducao'>Instrodução</h1>
+<p>Bem vindo a documentação do protocolo de pagamento Convertize via GiftCard.</p>
+
+<p>Para se integrar com nosso protocolo de pagamento você deverá desenvolver uma WebAPI (REST) seguindo todas as informações deste protocolo.</p>
+
+<p>Exemplo: {BASE_URL}/{OPERATION_URI}</p>
+
+<p>{BASE_URL} =&gt; URL base que aponta para sua WebAPI 
+{OPERATION_URI} =&gt; Endpoint especifico chamados pelo protocolo de pagamento Convertize</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+</blockquote>
+
+<p>Nosso sistema envia 2 headers de validação que é possível customizar via ambiente administrativo da Convertize, segue exemplo abaixo:</p>
+
+<p><code>X-CONVERTIZE-APPKEY: APPKEY</code><br />
+<code>X-CONVERTIZE-APPTOKEN: APPTOKEN</code></p>
+
+<aside class="notice">
+Você deve substituir <code>APPKEY</code> pela sua chave de acesso.
+</aside>
+
+<aside class="notice">
+Você deve substituir <code>APPTOKEN</code> pela sua chave de acesso.
+</aside>
+<h1 id='giftcard'>GiftCard</h1><h2 id='criar-giftcard'>Criar Giftcard</h2>
+<p>Neste endpoint nosso protocolo espera que você receba as informações e crie um giftcard.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"{BASE_URL}/giftcard"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPKEY: {APPKEY}"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPTOKEN: {APPTOKEN}"</span>
+  -X POST -d <span class="s1">'{JSON}'</span>
+</code></pre>
+<blockquote>
+<p>Exemplo do {JSON} para envio no body:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"convertize"</span><span class="p">,</span><span class="w">  
+  </span><span class="s2">"expiration_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-30T18:40:32"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PBM"</span><span class="p">,</span><span class="w">  
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fe95a6b-6070-41ee-b3d8-38cbe2b8ca13"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>O comando acima deverá retonar um JSON conforme estrutura abaixo:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"convertize"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-30T18:40:32"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-30T18:40:32"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PBM"</span><span class="p">,</span><span class="w">  
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fe95a6b-6070-41ee-b3d8-38cbe2b8ca13"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d0128512-aa89-469c-9e6e-15ab15c4eb50"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST {BASE_URL}/giftcard</code></p>
+<h3 id='request-headers'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-CONVERTIZE-APPKEY</td>
+<td>{X-CONVERTIZE-APPKEY}</td>
+</tr>
+<tr>
+<td>X-CONVERTIZE-APPTOKEN</td>
+<td>{X-CONVERTIZE-APPTOKEN}</td>
+</tr>
+<tr>
+<td>Content-Typen</td>
+<td>application/json</td>
+</tr>
+</tbody></table>
+<h2 id='recuperar-giftcard'>Recuperar Giftcard</h2>
+<p>Neste endpoint nosso protocolo espera que você receba as informações e retorne um giftcard.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"{BASE_URL}/giftcard{id}"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPKEY: {APPKEY}"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPTOKEN: {APPTOKEN}"</span>
+  -X GET
+</code></pre>
+<blockquote>
+<p>O comando acima deverá retonar um JSON conforme estrutura abaixo:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"convertize"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-30T18:40:32"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-30T18:40:32"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PBM"</span><span class="p">,</span><span class="w">  
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fe95a6b-6070-41ee-b3d8-38cbe2b8ca13"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d0128512-aa89-469c-9e6e-15ab15c4eb50"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET {BASE_URL}/giftcard/{id}</code></p>
+<h3 id='request-headers-2'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-CONVERTIZE-APPKEY</td>
+<td>{X-CONVERTIZE-APPKEY}</td>
+</tr>
+<tr>
+<td>X-CONVERTIZE-APPTOKEN</td>
+<td>{X-CONVERTIZE-APPTOKEN}</td>
+</tr>
+<tr>
+<td>Content-Typen</td>
+<td>application/json</td>
+</tr>
+</tbody></table>
+<h2 id='buscar-giftcard'>Buscar Giftcard</h2>
+<p>Neste endpoint nosso protocolo espera que você receba as informações e retorne um giftcard.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"{BASE_URL}/giftcard/search"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPKEY: {APPKEY}"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPTOKEN: {APPTOKEN}"</span>
+  -X POST -d <span class="s1">'{JSON}'</span>
+</code></pre>
+<blockquote>
+<p>Exemplo do {JSON} para envio no body:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"convertize"</span><span class="p">,</span><span class="w">  
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fe95a6b-6070-41ee-b3d8-38cbe2b8ca13"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bcb5d867-3a11-4ea2-b79e-0193e9152b2e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Teste"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"document_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04136081820"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"document_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compradorteste@convertize.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1140107676"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RIBEIRÃO PRETO"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R BERNARDINO DE CAMPOS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HIGIENOPOLIS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14015130"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"delivery_address"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RIBEIRÃO PRETO"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R BERNARDINO DE CAMPOS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HIGIENOPOLIS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14015130"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"ean_13"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890123"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Produto de Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>O comando acima deverá retonar um JSON conforme estrutura abaixo:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">  
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"convertize"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expiration_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-30T18:40:32"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-30T18:40:32"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PBM"</span><span class="p">,</span><span class="w">  
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fe95a6b-6070-41ee-b3d8-38cbe2b8ca13"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d0128512-aa89-469c-9e6e-15ab15c4eb50"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST {BASE_URL}/giftcard/search</code></p>
+<h3 id='request-headers-3'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-CONVERTIZE-APPKEY</td>
+<td>{X-CONVERTIZE-APPKEY}</td>
+</tr>
+<tr>
+<td>X-CONVERTIZE-APPTOKEN</td>
+<td>{X-CONVERTIZE-APPTOKEN}</td>
+</tr>
+<tr>
+<td>Content-Typen</td>
+<td>application/json</td>
+</tr>
+</tbody></table>
+<h2 id='criar-transacao'>Criar Transação</h2>
+<p>Neste endpoint nosso protocolo espera que você receba as informações e retorne um giftcard.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"{BASE_URL}/giftcard/{id}/transactions"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPKEY: {APPKEY}"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPTOKEN: {APPTOKEN}"</span>
+  -X POST -d <span class="s1">'{JSON}'</span>
+</code></pre>
+<blockquote>
+<p>Exemplo do {JSON} para envio no body:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="s2">"operation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debit"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"convertize"</span><span class="p">,</span><span class="w">  
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fe95a6b-6070-41ee-b3d8-38cbe2b8ca13"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d0128512-aa89-469c-9e6e-15ab15c4eb50"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"buyer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bcb5d867-3a11-4ea2-b79e-0193e9152b2e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Teste"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"document_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04136081820"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"document_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compradorteste@convertize.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1140107676"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RIBEIRÃO PRETO"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R BERNARDINO DE CAMPOS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HIGIENOPOLIS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14015130"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"delivery_address"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RIBEIRÃO PRETO"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R BERNARDINO DE CAMPOS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HIGIENOPOLIS"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14015130"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"ean_13"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890123"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"reference_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Produto de Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>O comando acima deverá retonar um JSON conforme estrutura abaixo:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca48738-7baa-40ee-8798-6d6a5c727176"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-30T18:45:32"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST {BASE_URL}/giftcard/{id}/transactions</code></p>
+<h3 id='request-headers-4'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-CONVERTIZE-APPKEY</td>
+<td>{X-CONVERTIZE-APPKEY}</td>
+</tr>
+<tr>
+<td>X-CONVERTIZE-APPTOKEN</td>
+<td>{X-CONVERTIZE-APPTOKEN}</td>
+</tr>
+<tr>
+<td>Content-Typen</td>
+<td>application/json</td>
+</tr>
+</tbody></table>
+<h2 id='recuperar-transacao'>Recuperar Transação</h2>
+<p>Neste endpoint nosso protocolo espera que você receba as informações e retorne um giftcard.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"{BASE_URL}/giftcard/{id}/transactions/{id}"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPKEY: {APPKEY}"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPTOKEN: {APPTOKEN}"</span>
+  -X GET
+</code></pre>
+<blockquote>
+<p>O comando acima deverá retonar um JSON conforme estrutura abaixo:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca48738-7baa-40ee-8798-6d6a5c727176"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-30T18:45:32"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET {BASE_URL}/giftcard/{id}/transactions/{id}</code></p>
+<h3 id='request-headers-5'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-CONVERTIZE-APPKEY</td>
+<td>{X-CONVERTIZE-APPKEY}</td>
+</tr>
+<tr>
+<td>X-CONVERTIZE-APPTOKEN</td>
+<td>{X-CONVERTIZE-APPTOKEN}</td>
+</tr>
+<tr>
+<td>Content-Typen</td>
+<td>application/json</td>
+</tr>
+</tbody></table>
+<h2 id='cancelar-transacao'>Cancelar Transação</h2>
+<p>Neste endpoint nosso protocolo espera que você receba as informações e retorne um giftcard.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"{BASE_URL}/giftcard/{id}/transactions/{id}/cancel"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPKEY: {APPKEY}"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPTOKEN: {APPTOKEN}"</span>
+  -X POST -d <span class="s1">'{JSON}'</span>
+</code></pre>
+<blockquote>
+<p>Exemplo do {JSON} para envio no body:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca48738-7baa-40ee-8798-6d6a5c727176"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>O comando acima deverá retonar um JSON conforme estrutura abaixo:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca48738-7baa-40ee-8798-6d6a5c727176"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-30T18:47:32"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST {BASE_URL}/giftcard/{id}/transactions/{id}/cancel</code></p>
+<h3 id='request-headers-6'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-CONVERTIZE-APPKEY</td>
+<td>{X-CONVERTIZE-APPKEY}</td>
+</tr>
+<tr>
+<td>X-CONVERTIZE-APPTOKEN</td>
+<td>{X-CONVERTIZE-APPTOKEN}</td>
+</tr>
+<tr>
+<td>Content-Typen</td>
+<td>application/json</td>
+</tr>
+</tbody></table>
+<h2 id='captura-transacao'>Captura Transação</h2>
+<p>Neste endpoint nosso protocolo espera que você receba as informações e retorne um giftcard.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"{BASE_URL}/giftcard/{id}/transactions/{id}/capture"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPKEY: {APPKEY}"</span>
+  -H <span class="s2">"X-CONVERTIZE-APPTOKEN: {APPTOKEN}"</span>
+  -X POST -d <span class="s1">'{JSON}'</span>
+</code></pre>
+<blockquote>
+<p>Exemplo do {JSON} para envio no body:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca48738-7baa-40ee-8798-6d6a5c727176"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>O comando acima deverá retonar um JSON conforme estrutura abaixo:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ca48738-7baa-40ee-8798-6d6a5c727176"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-30T18:47:32"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST {BASE_URL}/giftcard/{id}/transactions/{id}/capture</code></p>
+<h3 id='request-headers-7'>Request Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-CONVERTIZE-APPKEY</td>
+<td>{X-CONVERTIZE-APPKEY}</td>
+</tr>
+<tr>
+<td>X-CONVERTIZE-APPTOKEN</td>
+<td>{X-CONVERTIZE-APPTOKEN}</td>
+</tr>
+<tr>
+<td>Content-Typen</td>
+<td>application/json</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="python">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
